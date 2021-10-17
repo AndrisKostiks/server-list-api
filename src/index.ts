@@ -1,7 +1,7 @@
 import express from "express";
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || "8080";
 
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
@@ -52,5 +52,5 @@ app.post( "/", (req, res) => {
 });
 
 app.listen( port, () => {
-  console.log( `server started at http://localhost:${ port }` );
+  console.log( `server started on port ${ port }` );
 } );
